@@ -173,7 +173,7 @@
         }
 
         try {
-          // const response = await axios.post(`${SERVER}/api/public/createReservation`, data)
+          const response = await axios.post(`${SERVER}/api/public/createReservation`, data)
           // go to thank you page
           this.$router.push({ name: 'thank-you' })
         } catch (error) {
