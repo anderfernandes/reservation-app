@@ -114,7 +114,7 @@
 <script>
   
   import { format } from 'date-fns'
-  //import axios  from 'axios'
+  import axios  from 'axios'
   import marked from 'marked'
   
   export default {
@@ -174,13 +174,13 @@
 
         try {
           const response = await axios.post(`${SERVER}/api/public/createReservation`, data)
+          console.log(response, data)
           // go to thank you page
           this.$router.push({ name: 'thank-you' })
         } catch (error) {
+          console.log(error)
           this.$store.commit('SET_ERRORS', 'Unable to send your reservation at this moment.')
         }
-
-        console.log(data.events)
         
       }
     },
