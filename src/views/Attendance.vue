@@ -62,10 +62,10 @@
       <i class="refresh icon"></i>
       Start Over
     </div>
-    <div class="ui huge primary button" @click="$router.push({ name: 'dates' })">
+    <button class="ui huge primary button" @click="$router.push({ name: 'dates' })" :disabled="attendance > 180">
       Next
       <i class="right chevron icon"></i>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -112,8 +112,7 @@
               this.$store.commit('REMOVE_ERROR', 'Make sure you have no more than 10 students per teacher.')
           }
           if (this.attendance > this.capacity) {
-            if (!this.errors.includes(`We can't seat more than ${this.capacity} people.`))
-                this.$store.commit('SET_ERRORS', `We can't seat more than ${this.capacity} people.`)
+                alert(`We can't seat more than ${this.capacity} people.`)
           } else {
             if (this.errors.length > 0)
               this.$store.commit('REMOVE_ERROR', `We can't seat more than ${this.capacity} people.`)

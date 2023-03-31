@@ -40,8 +40,7 @@
             <div class="header">
               Select a date!
             </div>
-            <p>Please select a date from the calendar.
-              </p>
+            <p>Please select a date from the calendar.</p>
           </div>
         </div>
         <!-- Show alert to chose date -->
@@ -115,6 +114,7 @@
           dateFormat: "l, F j, Y",
           minDate   : this.$store.state.min_date,
           inline    : true,
+          disable: [(date) => date.getDay() === 0]
         },
         isLoadingEvents: false,
         fetchFailed: false,
